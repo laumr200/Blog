@@ -47,7 +47,7 @@ export default function ContactPage() {
         {/* Bloc formulaire */}
         <div className="flex-1 bg-white dark:bg-[#181c24] p-10 flex flex-col justify-center rounded-xl md:rounded-l-none shadow-2xl z-0">
           <h2 className="text-2xl font-bold text-[#20406a] dark:text-blue-200 mb-2 font-sans">Entrer en contact</h2>
-          <p className="text-gray-400 dark:text-gray-300 mb-6">N'hésitez pas à nous écrire ci-dessous&nbsp;!</p>
+          <p className="text-gray-400 dark:text-gray-300 mb-6">N&apos;hésitez pas à nous écrire ci-dessous&nbsp;!</p>
           <form className="flex flex-col gap-4">
             <input
               type="text"

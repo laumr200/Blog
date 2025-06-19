@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { getAllPosts } from "@/lib/actions/blog";
 
-const categories = ["Toutes", "Actualités", "Conseils", "Avis"];
+
 
 export default async function PostsPage() {
   const articles = await getAllPosts();

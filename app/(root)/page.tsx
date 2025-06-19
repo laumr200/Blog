@@ -30,10 +30,10 @@ export default async function Home() {
               Bienvenue sur Laura Dev
             </span>
             <h1 className="text-5xl md:text-6xl font-extrabold mb-4 text-[#20406a] dark:text-blue-200 leading-tight tracking-tight drop-shadow">
-              Le blog pour passionnés d'informatique
+              Le blog pour passionnés d&apos;informatique
             </h1>
             <p className="text-xl text-gray-700 dark:text-gray-300 mb-8 max-w-xl">
-              Derniers articles, conseils, tutoriels et ressources pour progresser dans le développement, la tech et l'IA.
+              Derniers articles, conseils, tutoriels et ressources pour progresser dans le développement, la tech et l&apos;IA.
             </p>
             <a
               href="/posts"
@@ -145,7 +145,7 @@ export default async function Home() {
               type="submit"
               className="flex items-center gap-2 px-6 py-3 rounded-lg bg-white dark:bg-[#232b3a] text-blue-600 dark:text-white font-medium hover:bg-gray-100 dark:hover:bg-[#181c24] transition-all"
             >
-              S'inscrire <span>📧</span>
+              S&apos;inscrire <span>📧</span>
             </button>
           </form>
           <p className="text-sm mt-4">

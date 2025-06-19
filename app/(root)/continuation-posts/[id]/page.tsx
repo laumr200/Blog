@@ -4,6 +4,13 @@ interface Props {
   params: { id: string };
 }
 
+interface PostSection {
+  id: number;
+  subtitle: string;
+  content: string;
+  image?: string;
+}
+
 export default async function PostDetailPage({ params }: Props) {
   const postId = Number(params.id);
   const data = await getPostWithSections(postId);
@@ -29,7 +36,7 @@ export default async function PostDetailPage({ params }: Props) {
 
       {/* Sections */}
       <div className="max-w-3xl mx-auto mt-10 space-y-10 px-4">
-        {postSections.map((section: any) => (
+        {postSections.map((section: PostSection) => (
           <section key={section.id}>
             <h2 className="text-2xl font-semibold mb-2 text-[#20406a] dark:text-blue-200">
               {section.subtitle}
