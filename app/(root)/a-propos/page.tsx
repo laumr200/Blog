@@ -1,13 +1,15 @@
 "use client";
-
+import Image from "next/image";
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-[#f4faff] dark:bg-[#10141a] px-4 py-12 flex flex-col items-center">
       <div className="bg-white dark:bg-[#181c24] rounded-xl shadow-lg p-8 max-w-2xl w-full flex flex-col items-center">
-        <img
+        <Image
           src="/images/03.jpg"
           alt="Photo de Laura"
-          className="w-32 h-32 rounded-full object-cover mb-6 border-4 border-[#20406a] dark:border-blue-200 shadow"
+          width={128}
+          height={128}
+          className="rounded-full object-cover mb-6 border-4 border-[#20406a] dark:border-blue-200 shadow"
         />
         <h1 className="text-3xl font-bold mb-2 text-[#20406a] dark:text-blue-200">À propos de moi</h1>
         <p className="text-gray-700 dark:text-gray-300 text-center mb-6">

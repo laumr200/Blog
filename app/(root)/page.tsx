@@ -1,6 +1,6 @@
 
 import { getCategoriesCount, getLatestPosts } from "@/lib/actions/blog";
-
+import Image from "next/image";
 
 export default async function Home() {
   const latestArticles = await getLatestPosts(3);
@@ -45,7 +45,9 @@ export default async function Home() {
           {/* Image à droite */}
           <div className="flex-1 flex justify-center md:justify-end">
             <div className="relative">
-              <img
+              <Image
+                width={980}
+                height={600}
                 src="/images/home.png"
                 alt="Illustration informatique"
                 className="w-[980px] max-w-full h-auto rounded-2xl shadow-2xl border-4 border-white dark:border-[#232b3a]"
@@ -97,7 +99,9 @@ export default async function Home() {
                 key={article.id}
                 className="bg-white dark:bg-[#181c24] rounded-lg shadow-md overflow-hidden"
               >
-                <img
+                <Image
+                  width={600}
+                  height={400}
                   src={article.image}
                   alt={article.title}
                   className="w-full h-48 object-cover"

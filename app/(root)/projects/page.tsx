@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 const projects = [
   {
@@ -68,10 +69,12 @@ export default function ProjectsPage() {
             className="bg-white dark:bg-[#181c24] rounded-xl shadow-lg hover:shadow-2xl transition p-6 flex flex-col gap-4"
           >
             <div className="flex items-center gap-4">
-              <img
+              <Image
                 src={project.image}
                 alt={project.name}
-                className="w-16 h-16 object-cover rounded-lg border hover:scale-105 transition"
+                width={64}
+                height={64}
+                className="object-cover rounded-lg border hover:scale-105 transition"
               />
               <div>
                 <h2 className="text-xl font-semibold text-gray-900 dark:text-white">{project.name}</h2>

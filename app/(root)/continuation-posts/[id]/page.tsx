@@ -1,5 +1,5 @@
 import { getPostWithSections } from "@/lib/actions/blog";
-
+import Image from "next/image";
 interface Props {
   params: { id: string };
 }
@@ -8,7 +8,7 @@ interface PostSection {
   id: number;
   subtitle: string;
   content: string;
-  image?: string;
+  image?: string | null;
 }
 
 export default async function PostDetailPage({ params }: Props) {
@@ -43,7 +43,9 @@ export default async function PostDetailPage({ params }: Props) {
             </h2>
             <p className="mb-4 text-gray-800 dark:text-gray-200">{section.content}</p>
             {section.image && (
-              <img
+              <Image
+                width={800}
+                height={600}
                 src={section.image}
                 alt={section.subtitle}
                 className="w-full max-h-80 object-cover rounded"

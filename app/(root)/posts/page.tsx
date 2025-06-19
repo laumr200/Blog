@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getAllPosts } from "@/lib/actions/blog";
-
+import Image from "next/image";
 
 
 export default async function PostsPage() {
@@ -22,9 +22,12 @@ export default async function PostsPage() {
             className="bg-white dark:bg-[#181c24] rounded shadow-sm p-0 overflow-hidden flex flex-col hover:scale-105 transition-transform"
             style={{ textDecoration: "none" }}
           >
-            <img
+            
+            <Image
               src={article.image}
               alt={article.title}
+              width={600}
+              height={400}
               className="w-full h-44 object-cover"
             />
             <div className="p-4 flex flex-col flex-1">
