@@ -1,8 +1,5 @@
 import { getPostWithSections } from "@/lib/actions/blog";
 import Image from "next/image";
-interface Props {
-  params: { id: string };
-}
 
 interface PostSection {
   id: number;
