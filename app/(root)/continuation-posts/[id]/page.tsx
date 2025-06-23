@@ -11,7 +11,7 @@ interface PostSection {
   image?: string | null;
 }
 
-export default async function PostDetailPage({ params }: Props) {
+export default async function PostDetailPage({ params }: { params: { id: string } }) {
   const postId = Number(params.id);
   const data = await getPostWithSections(postId);
 
