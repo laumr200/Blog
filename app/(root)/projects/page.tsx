@@ -33,7 +33,7 @@ const projects = [
   },
 ];
 
-export default function ProjectsPage({ params }: { params: { id: string } }) {
+export default function ProjectsPage() {
   const [search, setSearch] = useState("");
 
   const filteredProjects = projects.filter((project) =>
