@@ -8,29 +8,20 @@ const projects = [
     id: 1,
     name: "Portfolio React",
     description: "Un portfolio moderne en React avec animations et responsive.",
-    tech: "React",
-    image: "/images/contact.png",
-    zip: "/downloads/portfolio-react.zip",
-    github: "https://github.com/tonprofil/portfolio-react",
-  },
-  {
-    id: 2,
-    name: "Blog Next.js",
-    description: "Un blog complet avec Next.js, markdown et commentaires.",
     tech: "Next.js",
     image: "/images/contact.png",
-    zip: "/downloads/blog-nextjs.zip",
-    github: "https://github.com/tonprofil/blog-nextjs",
+    zip: "/downloads/deploiment-portafolio.zip",
+    
   },
+ 
   {
-    id: 3,
-    name: "API Node.js",
-    description: "API RESTful Node.js prête à l’emploi pour vos projets.",
-    tech: "Node.js",
+    id: 2,
+    name: "Restaurant Fullstack",
+    description: "Un restaurant complet avec React.js.",
+    tech: "rect",
     image: "/images/contact.png",
-    zip: "/downloads/api-nodejs.zip",
-    github: "https://github.com/tonprofil/api-nodejs",
-  },
+    zip: "/downloads/food-del.zip",
+  } 
 ];
 
 export default function ProjectsPage() {
