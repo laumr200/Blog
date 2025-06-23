@@ -2,7 +2,31 @@
 import { useState } from "react";
 
 export default function ContactPage() {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [result, setResult] = useState(""); // Ajout de l'état pour le résultat
+
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setResult("Envoi en cours...");
+    const formData = new FormData(event.target as HTMLFormElement);
+
+    // Clé d'accès Web3Forms
+      formData.append("access_key", "ff6414b1-d2e0-4b96-b5c8-a5fc67aedca7");
+
+    const response = await fetch("https://api.web3forms.com/submit",  {
+      method: "POST",
+      body: formData
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setResult("Message envoyé avec succès !");
+      setForm({ name: "", email: "", message: "" });
+    } else {
+      setResult("Erreur : " + data.message);
+    }
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#f4faff] dark:bg-[#10141a]">
@@ -45,29 +69,35 @@ export default function ContactPage() {
           </div>
         </div>
         {/* Bloc formulaire */}
-        <div className="flex-1 bg-white dark:bg-[#181c24] p-10 flex flex-col justify-center rounded-xl md:rounded-l-none shadow-2xl z-0">
+         <div className="flex-1 bg-white dark:bg-[#181c24] p-10 flex flex-col justify-center rounded-xl md:rounded-l-none shadow-2xl z-0">
           <h2 className="text-2xl font-bold text-[#20406a] dark:text-blue-200 mb-2 font-sans">Entrer en contact</h2>
           <p className="text-gray-400 dark:text-gray-300 mb-6">N&apos;hésitez pas à nous écrire ci-dessous&nbsp;!</p>
-          <form className="flex flex-col gap-4">
+          <form className="flex flex-col gap-4" onSubmit={onSubmit}>
             <input
               type="text"
+              name="name"
               placeholder="Votre nom"
               className="w-full px-4 py-3 rounded bg-[#f5f7fa] dark:bg-[#232b3a] text-[#34495e] dark:text-white placeholder-[#b0bfcf] dark:placeholder-[#7a8ca3] focus:outline-none"
               value={form.name}
               onChange={e => setForm({ ...form, name: e.target.value })}
+              required
             />
             <input
               type="email"
+              name="email"
               placeholder="Votre email"
               className="w-full px-4 py-3 rounded bg-[#f5f7fa] dark:bg-[#232b3a] text-[#34495e] dark:text-white placeholder-[#b0bfcf] dark:placeholder-[#7a8ca3] focus:outline-none"
               value={form.email}
               onChange={e => setForm({ ...form, email: e.target.value })}
+              required
             />
             <textarea
+              name="message"
               placeholder="Votre message"
               className="w-full px-4 py-3 rounded bg-[#f5f7fa] dark:bg-[#232b3a] text-[#34495e] dark:text-white placeholder-[#b0bfcf] dark:placeholder-[#7a8ca3] focus:outline-none min-h-[90px] resize-none"
               value={form.message}
               onChange={e => setForm({ ...form, message: e.target.value })}
+              required
             />
             <button
               type="submit"
@@ -79,6 +109,9 @@ export default function ContactPage() {
             >
               ENVOYER
             </button>
+            {result && (
+              <div className="text-center mt-2 text-sm text-blue-700 dark:text-blue-300">{result}</div>
+            )}
           </form>
         </div>
       </div>
