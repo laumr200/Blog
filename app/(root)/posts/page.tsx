@@ -3,17 +3,37 @@ import { getAllPosts } from "@/lib/actions/blog";
 import Image from "next/image";
 
 
-export default async function PostsPage() {
+export default async function PostsPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ category?: string | string[] }>;
+}) {
+  const { category } = await searchParams;
+  const selectedCategory = typeof category === "string" ? category : undefined;
   const articles = await getAllPosts();
 
-  const filteredArticles = articles;
+  const filteredArticles = selectedCategory
+    ? articles.filter((article) => article.category === selectedCategory)
+    : articles;
   
 
   return (
     <div className="min-h-screen bg-[#f4faff] dark:bg-[#10141a] px-8 py-8">
       <h1 className="text-6xl font-serif font-bold text-center mb-10 tracking-wide text-[#20406a] dark:text-blue-200">
-        ARTICLES
+        {selectedCategory || "ARTICLES"}
       </h1>
+      {selectedCategory && (
+        <div className="text-center mb-8">
+          <Link href="/posts" className="text-blue-600 dark:text-blue-300 hover:underline">
+            Voir tous les articles
+          </Link>
+        </div>
+      )}
+      {filteredArticles.length === 0 && (
+        <p className="text-center text-gray-700 dark:text-gray-300">
+          Aucun article pour le moment.
+        </p>
+      )}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {filteredArticles.map((article) => (
           <Link

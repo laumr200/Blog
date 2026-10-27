@@ -1,6 +1,7 @@
 
 import { getCategoriesCount, getLatestPosts } from "@/lib/actions/blog";
 import Image from "next/image";
+import Link from "next/link";
 
 export default async function Home() {
   const latestArticles = await getLatestPosts(3);
@@ -68,15 +69,33 @@ export default async function Home() {
             Plongez dans vos sujets technologiques préférés avec notre contenu catégorisé
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {categories.map((cat) => (
-              <div key={cat.key} className="bg-white dark:bg-[#181c24] rounded-lg p-6 shadow-md flex flex-col items-center">
-                <div className="text-4xl mb-4">{cat.icon}</div>
-                <h3 className="font-semibold text-lg mb-2 text-gray-900 dark:text-white">{cat.name}</h3>
-                <p className="text-gray-600 dark:text-gray-400">
-                  {categoriesCount[cat.key] ?? 0} articles
-                </p>
-              </div>
-            ))}
+            {categories.map((cat) => {
+              const count = categoriesCount[cat.key] ?? 0;
+              const className = "bg-white dark:bg-[#181c24] rounded-lg p-6 shadow-md flex flex-col items-center";
+              const content = (
+                <>
+                  <div className="text-4xl mb-4">{cat.icon}</div>
+                  <h3 className="font-semibold text-lg mb-2 text-gray-900 dark:text-white">{cat.name}</h3>
+                  <p className="text-gray-600 dark:text-gray-400">
+                    {count} articles
+                  </p>
+                </>
+              );
+
+              return count > 0 ? (
+                <Link
+                  key={cat.key}
+                  href={`/posts?category=${encodeURIComponent(cat.key)}`}
+                  className={`${className} hover:shadow-lg transition-shadow focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-600`}
+                >
+                  {content}
+                </Link>
+              ) : (
+                <div key={cat.key} className={className}>
+                  {content}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

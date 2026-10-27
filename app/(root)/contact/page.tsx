@@ -44,15 +44,15 @@ export default function ContactPage() {
               </li>
               <li className="flex items-center gap-3 opacity-80">
                 <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="5" width="16" height="10" rx="3"/><path d="M2 7l8 5 8-5"/></svg>
-                hello@mikechemartin.com
+                <a href="mailto:laura.c.moye@gmail.com">laura.c.moye@gmail.com</a>
               </li>
               <li className="flex items-center gap-3 opacity-80">
                 <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="10" cy="10" r="7"/><path d="M14 10c0 2-1.5 3-4 3s-4-1-4-3"/></svg>
-                mike.chemardin
+                Laura Moye Ramirez
               </li>
               <li className="flex items-center gap-3 opacity-80">
                 <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2"><rect x="4" y="2" width="12" height="16" rx="2"/><path d="M8 6h4"/></svg>
-                +33 6 19 53 01 44
+                <a href="tel:+18193609915">+1 819 360 9915</a>
               </li>
             </ul>
           </div>

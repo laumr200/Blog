@@ -8,8 +8,9 @@ interface PostSection {
   image?: string | null;
 }
 
-export default async function PostDetailPage({ params }: { params: { id: string } }) {
-  const postId = Number(params.id);
+export default async function PostDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const postId = Number(id);
   const data = await getPostWithSections(postId);
 
   if (!data) return <div>Post introuvable.</div>;

@@ -19,3 +19,41 @@
 
 ##About
 ![image](https://github.com/user-attachments/assets/ba533100-8411-44d2-9b0a-b74bfa0530ce)
+
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Learn More
+
+### Article categories
+
+On the home page, categories containing articles link to `/posts?category=...`,
+which displays only articles matching that category. Empty categories are not
+links and leave visitors on the home page. `/posts` displays all articles.
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Technologies present (verified)
+
+The following technologies and patterns are used in this project (verified from the repository):
+
+- Next.js, React & TypeScript: Application built with Next.js (App Router) and TypeScript for SSR/CSR rendering and static typing.
+- Drizzle ORM & migrations: Relational modeling and migration support using Drizzle and `drizzle-kit` (database connection and schema files present).
+- Postgres / Neon database: Database connection configured for Postgres/Neon via `@neondatabase/serverless` and `drizzle-orm/neon-http` (Postgres/Neon, not MySQL).
+- Server-side logic & actions: Server-side data access and action handlers for posts (library of actions present in the project).
+- Styling & theming: Global styles and theme support using Tailwind/PostCSS and `next-themes` (global CSS and theme provider/switcher components present).
+- Components & App Router architecture: UI split into reusable React components and App Router layouts for maintainability.
+
+Short CV line:
+
+Full‑stack developer — Blog implemented with Next.js, TypeScript, React, Drizzle ORM and Postgres/Neon; styled with Tailwind and supporting light/dark themes.
